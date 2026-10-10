@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Sanket ✨</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1f1c2c, #928DAB);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            color: #fff;
+            position: relative;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .star {
+            position: absolute;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 2s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            width: 90%;
+            max-width: 420px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 24px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            display: none;
+            animation: fadeIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .container.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            line-height: 1.4;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(255, 117, 140, 0.4);
+            transition: all 0.3s ease;
+            margin-top: 15px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(255, 117, 140, 0.6);
+        }
+
+        .door-box {
+            cursor: pointer;
+            width: 140px;
+            height: 180px;
+            background: #8b5a2b;
+            margin: 20px auto;
+            border-radius: 8px;
+            border: 4px solid #5c3a21;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            transition: transform 0.3s;
+        }
+
+        .door-box:hover {
+            transform: scale(1.03);
+        }
+
+        .door-box .knob {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            width: 14px;
+            height: 14px;
+            background: #ffd700;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .door-box.open {
+            transform: perspective(800px) rotateY(-70deg);
+            transform-origin: left;
+            opacity: 0.8;
+        }
+
+        .photo-card {
+            background: #fff;
+            color: #333;
+            border-radius: 16px;
+            padding: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+            margin-bottom: 15px;
+        }
+
+        .photo-card img {
+            width: 100%;
+            border-radius: 12px;
+            max-height: 280px;
+            object-fit: cover;
+            border: 1px solid #eee;
+            margin-bottom: 12px;
+        }
+
+        .photo-text {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c2c2c;
+            line-height: 1.4;
+        }
+
+        .gif-container {
+            width: 100%;
+            max-height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 15px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .gif-container img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .slider-container {
+            margin: 25px 0;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 15px;
+            border-radius: 12px;
+        }
+
+        .slider-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            appearance: none;
+            height: 8px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.2);
+            outline: none;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #ff758c;
+            cursor: pointer;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+
+        .slider-feedback {
+            margin-top: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #ffd700;
+            min-height: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars" id="stars"></div>
+
+    <!-- 1. Knock Knock -->
+    <div class="container active" id="step-1">
+        <h1>Knock knock...<br><span style="font-size: 1.1rem; font-weight: 400; color: #ddd;">Who is there? 🚪</span></h1>
+        <div class="door-box" id="door" onclick="openDoor()"><div class="knob"></div></div>
+        <p style="font-size: 0.85rem; color: #ccc;">Tap the door to open ✨</p>
+    </div>
+
+    <!-- 2. Sunshine -->
+    <div class="container" id="step-2">
+        <h1>Ohh my sunshine ☀️✨</h1>
+        <div class="gif-container"><img src="https://media.giphy.com/media/26BRv0ThflsHCqDrG/giphy.gif" alt="Shy GIF"></div>
+        <button class="btn" onclick="nextStep(3)">Continue ✨</button>
+    </div>
+
+    <!-- 3. Happy Saturday -->
+    <div class="container" id="step-3">
+        <h1>Happy Saturday sankettttt! ✨</h1>
+        <button class="btn" onclick="nextStep(4)">Let's See ✨</button>
+    </div>
+
+    <!-- 4. Little Hearts -->
+    <div class="container" id="step-4">
+        <div class="photo-card">
+            <img src="IMG_7701_f529c2.jpg" alt="Little Hearts">
+            <div class="photo-text">In a world of bare minimum, he gives his maximum ❤️🧿<br><br>Hello My Little Hearts ✨</div>
+        </div>
+        <button class="btn" onclick="nextStep(5)">Next ✨</button>
+    </div>
+
+    <!-- 5. Crispello -->
+    <div class="container" id="step-5">
+        <div class="photo-card">
+            <img src="IMG_7703_f529c2.jpg" alt="Crispello">
+            <div class="photo-text">My mind goes when I see you ✨</div>
+        </div>
+        <button class="btn" onclick="nextStep(6)">Next ✨</button>
+    </div>
+
+    <!-- 6. Gems -->
+    <div class="container" id="step-6">
+        <div class="photo-card">
+            <img src="IMG_7704_f529c2.jpg" alt="Gems">
+            <div class="photo-text">You are the gems of my life ✨</div>
+        </div>
+        <button class="btn" onclick="nextStep(7)">Next ✨</button>
+    </div>
+
+    <!-- 7. Dairy Milk -->
+    <div class="container" id="step-7">
+        <div class="photo-card">
+            <img src="IMG_7705_f529c2.jpg" alt="Dairy Milk">
+            <div class="photo-text">I wish your life to be as sweet as you ✨</div>
+        </div>
+        <button class="btn" onclick="nextStep(8)">Next ✨</button>
+    </div>
+
+    <!-- 8. KitKat -->
+    <div class="container" id="step-8">
+        <div class="photo-card">
+            <img src="IMG_7706_f529c2.jpg" alt="KitKat">
+            <div class="photo-text">I never want to take a break from our relation ✨</div>
+        </div>
+        <button class="btn" onclick="nextStep(9)">Next ✨</button>
+    </div>
+
+    <!-- 9. Perk Plus -->
+    <div class="container" id="step-9">
+        <div class="photo-card">
+            <img src="IMG_7709_f529c2.jpg" alt="Perk Plus">
+            <div class="photo-text">Thanks for being the perk plus of my life ✨</div>
+        </div>
+        <button class="btn" onclick="nextStep(10)">Next ✨</button>
+    </div>
+
+    <!-- 10. 5 Star -->
+    <div class="container" id="step-10">
+        <div class="photo-card">
+            <img src="IMG_7707_f529c2.jpg" alt="5 Star">
+            <div class="photo-text">You are the 5 star of my life ✨</div>
+        </div>
+        <button class="btn" onclick="nextStep(11)">Next ✨</button>
+    </div>
+
+    <!-- 11. Dark Fantasy -->
+    <div class="container" id="step-11">
+        <div class="photo-card">
+            <img src="IMG_7708_f529c2.jpg" alt="Dark Fantasy">
+            <div class="photo-text">My only wish is to be with you forever ✨</div>
+        </div>
+        <button class="btn" onclick="nextStep(12)">Next ✨</button>
+    </div>
+
+    <!-- 12. Annoyance Slider -->
+    <div class="container" id="step-12">
+        <h1>Do I annoy you? 🤔</h1>
+        <div class="slider-container">
+            <div class="slider-label"><span>0%</span><span id="slider-val">0%</span><span>100%</span></div>
+            <input type="range" id="annoy-slider" min="0" max="100" value="0" oninput="handleSlider(this)" onmouseup="resetSlider(this)" ontouchend="resetSlider(this)">
+            <div class="slider-feedback" id="slider-feedback"></div>
+        </div>
+        <button class="btn" id="slider-next-btn" style="display: none;" onclick="nextStep(13)">Continue ✨</button>
+    </div>
+
+    <!-- 13. Final Goodbye Slide -->
+    <div class="container" id="step-13">
+        <h1>byeee my sanket✨</h1>
+    </div>
+
+    <script>
+        const starsContainer = document.getElementById('stars');
+        for (let i = 0; i < 60; i++) {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.left = `${Math.random() * 100}%`;
+            const size = Math.random() * 3 + 1;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+            star.style.animationDuration = `${Math.random() * 3 + 1}s`;
+            star.style.animationDelay = `${Math.random() * 2}s`;
+            starsContainer.appendChild(star);
+        }
+
+        function openDoor() {
+            document.getElementById('door').classList.add('open');
+            setTimeout(() => { nextStep(2); }, 500);
+        }
+
+        function nextStep(stepNumber) {
+            document.querySelectorAll('.container').forEach(el => el.classList.remove('active'));
+            document.getElementById(`step-${stepNumber}`).classList.add('active');
+        }
+
+        function handleSlider(slider) {
+            document.getElementById('slider-val').innerText = slider.value + '%';
+        }
+
+        function resetSlider(slider) {
+            slider.value = 0;
+            document.getElementById('slider-val').innerText = '0%';
+            document.getElementById('slider-feedback').innerText = "I knew it! 😉✨";
+            document.getElementById('slider-next-btn').style.display = 'inline-block';
+        }
+    </script>
+</body>
+</html>
